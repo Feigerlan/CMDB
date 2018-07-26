@@ -1,0 +1,287 @@
+{% extends "base.html" %}
+{% block title %}
+    快钱CMDB Admin - 设备详情
+{% endblock %}
+{% block siderbar-nav %}
+        <!-- sidebar -->
+    <div id="sidebar-nav">
+        <ul id="dashboard-menu">
+{#            <li>#}
+{#                <a href="/user/index">#}
+{#                    <i class="icon-home"></i>#}
+{#                    <span>主页</span>#}
+{#                </a>#}
+{#            </li>#}
+{#            <li>#}
+{#                <a href="chart-showcase.html">#}
+{#                    <i class="icon-signal"></i>#}
+{#                    <span>图表</span>#}
+{#                </a>#}
+{#            </li>#}
+{#            <li>#}
+{#                <a class="dropdown-toggle" href="#">#}
+{#                    <i class="icon-group"></i>#}
+{#                    <span>用户</span>#}
+{#                    <i class="icon-chevron-down"></i>#}
+{#                </a>#}
+{#                <ul class="submenu">#}
+{#                    <li><a href="user-list.html">用户列表</a></li>#}
+{#                    <li><a href="new-user.html">新建用户列表</a></li>#}
+{#                    <li><a href="user-profile.html">用户属性</a></li>#}
+{#                </ul>#}
+{#            </li>#}
+            <li class="active">
+                <a class="dropdown-toggle" href="#">
+                    <div class="pointer">
+                        <div class="arrow"></div>
+                        <div class="arrow_border"></div>
+                    </div>
+                    <i class="icon-edit"></i>
+                    <span>资产列表</span>
+                    <i class="icon-chevron-down"></i>
+                </a>
+                <ul class="active submenu" style="margin-left: 20px">
+                    <li><a href="/user/DataroomList">机房资产</a></li>
+                    <li><a href="/user/CabinetList">机柜资产</a></li>
+                    <li><a href="/user/DeviceList" class="active">设备资产</a></li>
+                </ul>
+            </li>
+{#            <li>#}
+{#                <a href="gallery.html">#}
+{#                    <i class="icon-picture"></i>#}
+{#                    <span>视图</span>#}
+{#                </a>#}
+{#            </li>#}
+{#            <li>#}
+{#                <a href="calendar.html">#}
+{#                    <i class="icon-calendar-empty"></i>#}
+{#                    <span>日志</span>#}
+{#                </a>#}
+{#            </li>#}
+{#            <li>#}
+{#                <a href="tables.html">#}
+{#                    <i class="icon-th-large"></i>#}
+{#                    <span>列表</span>#}
+{#                </a>#}
+{#            </li>#}
+{#            <li>#}
+{#                <a class="dropdown-toggle ui-elements" href="#">#}
+{#                    <i class="icon-code-fork"></i>#}
+{#                    <span>UI Elements</span>#}
+{#                    <i class="icon-chevron-down"></i>#}
+{#                </a>#}
+{#                <ul class="submenu">#}
+{#                    <li><a href="ui-elements.html">UI Elements</a></li>#}
+{#                    <li><a href="icons.html">Icons</a></li>#}
+{#                </ul>#}
+{#            </li>#}
+{#            <li>#}
+{#                <a href="personal-info.html">#}
+{#                    <i class="icon-cog"></i>#}
+{#                    <span>My Info</span>#}
+{#                </a>#}
+{#            </li>#}
+{#            <li>#}
+{#                <a class="dropdown-toggle" href="#">#}
+{#                    <i class="icon-share-alt"></i>#}
+{#                    <span>Extras</span>#}
+{#                    <i class="icon-chevron-down"></i>#}
+{#                </a>#}
+{#                <ul class="submenu">#}
+{#                    <li><a href="code-editor.html">Code editor</a></li>#}
+{#                    <li><a href="grids.html">Grids</a></li>#}
+{#                    <li><a href="signin.html">Sign in</a></li>#}
+{#                    <li><a href="signup.html">Sign up</a></li>#}
+{#                </ul>#}
+{#            </li>#}
+        </ul>
+    </div>
+    <!-- end sidebar -->
+{% endblock %}
+
+{% block content %}
+    <!-- upper main stats -->
+    <div id="main-stats">
+                <div class="row-fluid stats-row">
+                    <div class="span3 stat">
+                        <div class="data">
+                            <span class="number">{{ totalserver }}</span>
+                            服务器
+                        </div>
+                        <span class="date">台</span>
+                    </div>
+                    <div class="span3 stat">
+                        <div class="data">
+                            <span class="number">{{ totalsec }}</span>
+                            安全设备
+                        </div>
+                        <span class="date">台</span>
+                    </div>
+                    <div class="span3 stat">
+                        <div class="data">
+                            <span class="number">{{ totalnet }}</span>
+                            网络设备
+                        </div>
+                        <span class="date">台</span>
+                    </div>
+                    <div class="span3 stat last">
+                        <div class="data">
+                            <span class="number">{{ totaldevices }}</span>
+                            总资产
+                        </div>
+                        <span class="date">台</span>
+                    </div>
+                </div>
+            </div>
+    <!-- end upper main stats -->
+    <div id="pad-wrapper" style="margin-top: 25px">
+                <!-- table sample -->
+                <!-- the script for the toggle all checkboxes from header is located in /static/js/theme.js -->
+                <div class="table-products section" style="border-top: 0;padding-top:0;margin-top: 0">
+
+                    <div class="row-fluid head">
+                        <div class="span12">
+                            <h4>设备详情</h4>
+                        </div>
+                    </div>
+
+
+
+                    </div>
+
+                    <div class="row-fluid">
+{#                        <table class="table table-hover" style="padding-bottom: 1px">#}
+                        <table class="table table-hover">
+                            <tr>
+                                <th>
+                                    SN号：
+                                </th>
+                                <td>
+                                    {{ device.sn }}
+                                </td>
+                                <th>
+                                    资产编号：
+                                </th>
+                                <td>
+                                    {{ device.Psn }}
+                                </td>
+                                <th>
+                                    设备类型：
+                                </th>
+                                <td>
+                                    {{ device.deviceType }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                   设备位置：
+                                </th>
+                                <td>
+                                    {{ device.DataRoom }}_{{ device.Cabinetname }}_{{ device.deviceMap }}
+                                </td>
+                                <th>
+                                    设备品牌：
+                                </th>
+                                <td>
+                                    {{ device.company }}
+                                </td>
+                                <th>
+                                    设备型号：
+                                </th>
+                                <td>
+                                    {{ device.model }}
+                                </td>
+                            </tr>
+                            <tr>
+
+                                <th>
+                                    管理IP:
+                                </th>
+                                <td>
+                                    {{ device.adminIP }}
+                                </td>
+                                <th>
+                                    业务IP:
+                                </th>
+                                <td>
+                                    {{ device.produceIP }}
+                                </td>
+                                <th>
+                                    操作系统：
+                                </th>
+                                <td>
+                                    {{ device.system }}
+                                </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                上联设备sn:
+                            </th>
+                            <td>
+                                {{ device.uplinkdev }}
+                            </td>
+                            <th>
+                                下联设备sn:
+                            </th>
+                            <td>
+                                {{ device.downlinkdev }}
+                            </td>
+                            <th>
+                                使用人:
+                            </th>
+                            <td>
+                                {{ device.deviceUser }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                更新时间:
+                            </th>
+                            <td>
+                                {{ device.updatetime }}
+                            </td>
+                            <th>
+                                过保日期:
+                            </th>
+                            <td>
+                                {{ device.OutMaintain }}
+                            </td>
+                            <th>
+                                操作员:
+                            </th>
+                            <td>
+                                {{ device.getUsername }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                是否虚拟化:
+                            </th>
+                            <td>
+                                {{ device.isVirtual }}
+                            </td>
+                            <th>
+                                是否上线:
+                            </th>
+                            <td>
+                                {{ device.isActive }}
+                            </td>
+                            <th>
+                                状态:
+                            </th>
+                            <td>
+                                {{ device.Status }}
+                            </td>
+                        </tr>
+                        </table>
+
+                    </div>
+
+                    <div class="pagination" style="margin-top: 0px;">
+
+
+                    </div>
+                </div>
+                <!-- end table sample -->
+            </div>
+{% endblock %}

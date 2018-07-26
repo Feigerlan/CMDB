@@ -1,0 +1,243 @@
+{% extends "base.html" %}
+{% block title %}
+    快钱CMDB Admin
+{% endblock %}
+
+{% block siderbar-nav %}
+        <!-- sidebar -->
+    <div id="sidebar-nav">
+        <ul id="dashboard-menu">
+            <li>
+                <a href="/user/index">
+                    <i class="icon-home"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li>
+                <a href="chart-showcase.html">
+                    <i class="icon-signal"></i>
+                    <span>图表</span>
+                </a>
+            </li>
+            <li>
+                <a class="dropdown-toggle" href="#">
+                    <i class="icon-group"></i>
+                    <span>用户</span>
+                    <i class="icon-chevron-down"></i>
+                </a>
+                <ul class="submenu">
+                    <li><a href="user-list.html">用户列表</a></li>
+                    <li><a href="new-user.html">新建用户列表</a></li>
+                    <li><a href="user-profile.html">用户属性</a></li>
+                </ul>
+            </li>
+                      <li class="active">
+                <a class="dropdown-toggle" href="#">
+                    <div class="pointer">
+                        <div class="arrow"></div>
+                        <div class="arrow_border"></div>
+                    </div>
+                    <i class="icon-edit"></i>
+                    <span>资产列表</span>
+                    <i class="icon-chevron-down"></i>
+                </a>
+                <ul class="active submenu" style="margin-left: 20px">
+                    <li><a href="/user/DataroomList">机房资产</a></li>
+                    <li><a href="/user/Cabinetlist">机柜资产</a></li>
+                    <li><a href="/user/DeviceList">设备资产</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="gallery.html">
+                    <i class="icon-picture"></i>
+                    <span>视图</span>
+                </a>
+            </li>
+            <li>
+                <a href="calendar.html">
+                    <i class="icon-calendar-empty"></i>
+                    <span>日志</span>
+                </a>
+            </li>
+            <li>
+                <a href="tables.html">
+                    <i class="icon-th-large"></i>
+                    <span>列表</span>
+                </a>
+            </li>
+            <li>
+                <a class="dropdown-toggle ui-elements" href="#">
+                    <i class="icon-code-fork"></i>
+                    <span>UI Elements</span>
+                    <i class="icon-chevron-down"></i>
+                </a>
+                <ul class="submenu">
+                    <li><a href="ui-elements.html">UI Elements</a></li>
+                    <li><a href="icons.html">Icons</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="personal-info.html">
+                    <i class="icon-cog"></i>
+                    <span>My Info</span>
+                </a>
+            </li>
+            <li>
+                <a class="dropdown-toggle" href="#">
+                    <i class="icon-share-alt"></i>
+                    <span>Extras</span>
+                    <i class="icon-chevron-down"></i>
+                </a>
+                <ul class="submenu">
+                    <li><a href="code-editor.html">Code editor</a></li>
+                    <li><a href="grids.html">Grids</a></li>
+                    <li><a href="signin.html">Sign in</a></li>
+                    <li><a href="signup.html">Sign up</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <!-- end sidebar -->
+{% endblock %}
+
+{% block content %}
+    <div id="main-stats">
+                <div class="row-fluid stats-row">
+                    <div class="span3 stat">
+                        <div class="data">
+                            <span class="number">2457</span>
+                            访问量
+                        </div>
+                        <span class="date">Today</span>
+                    </div>
+                    <div class="span3 stat">
+                        <div class="data">
+                            <span class="number">3240</span>
+                            用户数
+                        </div>
+                        <span class="date">February 2014</span>
+                    </div>
+                    <div class="span3 stat">
+                        <div class="data">
+                            <span class="number">322</span>
+                            命令
+                        </div>
+                        <span class="date">This week</span>
+                    </div>
+                    <div class="span3 stat last">
+                        <div class="data">
+                            <span class="number">2,340</span>
+                            总资产
+                        </div>
+                        <span class="date">last 30 days</span>
+                    </div>
+                </div>
+            </div>
+    <div id="pad-wrapper">
+                <!-- <div class="row-fluid head">
+                    <div class="span12">
+                        <h4>Form wizard</h4>
+                    </div>
+                </div> -->
+
+        <div class="row-fluid">
+                    <div class="span12">
+{#                        <div id="fuelux-wizard" class="wizard row-fluid">#}
+{#                            <ul class="wizard-steps">#}
+{#                                <li data-target="#step1" class="active">#}
+{#                                    <span class="step">1</span>#}
+{#                                    <span class="title">General <br /> information</span>#}
+{#                                </li>#}
+{#                                <li data-target="#step2">#}
+{#                                    <span class="step">2</span>#}
+{#                                    <span class="title">Address <br /> information</span>#}
+{#                                </li>#}
+{#                                <li data-target="#step3">#}
+{#                                    <span class="step">3</span>#}
+{#                                    <span class="title">User <br /> settings</span>#}
+{#                                </li>#}
+{#                                <li data-target="#step4">#}
+{#                                    <span class="step">4</span>#}
+{#                                    <span class="title">Payment <br /> info</span>#}
+{#                                </li>#}
+{#                            </ul>#}
+{#                        </div>#}
+                        <div class="step-content">
+                            <div class="step-pane active" id="step1">
+                                <div class="row-fluid form-wrapper" style=" width: 80%; margin: 0 auto;">
+                                    <div class="span12">
+
+                                        <form method="post">
+                                            <div class="field-box">
+                                                <label>SN号:</label>
+                                                <input class="span10" type="text" name = "sn"/>
+                                            </div>
+                                            <div class="field-box">
+                                                <label>资产编号:</label>
+                                                <input class="span10" type="text" name="Psn"/>
+                                            </div>
+                                            <div class="field-box">
+                                                <label>设备位置:</label>
+                                                <input class="span10" type="text" name = "map"/>
+                                            </div>
+                                            <div class="field-box">
+                                                <label>设备品牌:</label>
+                                                <input class="span10" type="text" name = "company"/>
+                                            </div>
+                                            <div class="field-box">
+                                                <label>设备型号:</label>
+                                                <input class="span10" type="text" name = "model"/>
+                                            </div>
+                                            <div class="field-box">
+                                                <label>管理IP地址:</label>
+                                                <input class="span10" type="text" name = "adminIP"/>
+                                            </div>
+                                            <div class="field-box">
+                                                <label>业务IP地址:</label>
+                                                <input class="span10" type="text" name = "produceIP"/>
+                                            </div>
+                                            <div class="field-box">
+                                                <label>操作系统:</label>
+                                                <input class="span10" type="text" name = "system"/>
+                                            </div>
+                                            <div class="field-box">
+                                                <label>操作员ID:</label>
+                                                <input class="span10" type="text" name = "lastLoginUser"/>
+                                            </div>
+                                            <div class="field-box">
+                                                <label>上联设备ID:</label>
+                                                <input class="span10" type="text" name = "DataRoom"/>
+                                            </div>
+                                            <div class="field-box">
+                                                <label>下联设备ID:</label>
+                                                <input class="span10" type="text" name = "CabinetID"/>
+                                            </div>
+
+                                            <div class="field-box">
+                                                <label>更新时间:</label>
+                                                <input class="span10" type="text" name = "lastlogintime"/>
+                                            </div>
+                                            <div style="margin-right: 10px;margin-bottom: 10px">
+                                                <input class="btn-glow success btn-finish" type = "submit" value="添加">
+                                            </div>
+                                        </form>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+{#                        <div class="wizard-actions">#}
+{#                            <button type="button" disabled="" class="btn-glow primary btn-prev">#}
+{#                                <i class="icon-chevron-left"></i> Prev#}
+{#                            </button>#}
+{#                            <button type="button" class="btn-glow primary btn-next" data-last="Finish">#}
+{#                                Next <i class="icon-chevron-right"></i>#}
+{#                            </button>#}
+{#                            <button type="button" class="btn-glow success btn-finish">#}
+{#                                添加服务器#}
+{#                            </button>#}
+{#                        </div>#}
+                    </div>
+                </div>
+    </div>
+{% endblock %}

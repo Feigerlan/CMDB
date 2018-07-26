@@ -1,0 +1,85 @@
+{% extends "DeviceAdd.html" %}
+{% block title %}
+	<title>快钱CMDB Admin - 机房添加</title>
+    {% endblock %}
+
+{% block pad-wrapper %}
+    <div id="pad-wrapper" class="new-user" style="margin-top: 10px;">
+                <div class="row-fluid header">
+                    <h3 style="font-style: italic">添加机房</h3>
+                </div>
+
+                <div class="row-fluid form-wrapper">
+                    <!-- left column -->
+                    <div class="span9 with-sidebar">
+                        <div class="container">
+                            <form class="new_user_form inline-input" method="post"/>
+
+                                <div class="span12 field-box">
+                                    <label>机房名称:</label>
+                                    <input class="span4" type="text" name="name"/>
+                                </div>
+
+{#                                <div class="span12 field-box">#}
+{#                                    <label>机房ID:</label>#}
+{#                                    <input class="span4" type="text" name="Psn"/>#}
+{#                                </div>#}
+
+{#                                <div class="span12 field-box">#}
+{#                                    <label>设备类型:</label>#}
+{#                                    <div class="ui-select span5">#}
+{#                                        <select >#}
+{#                                            <option value="server"/>服务器#}
+{#                                            <option value="netdevice"/>网络设备#}
+{#                                            <option value="secdevice"/>安全设备#}
+{#                                            <option value="virdevice"/> 虚拟设备#}
+{#                                        </select>#}
+{#                                        <p>select{{ obj.device_type }}</p>#}
+{#                                    </div>#}
+                                </div>
+
+
+{#                                <div class="span12 field-box">#}
+{#                                    <label>设备品牌:</label>#}
+{#                                    <input class="span9" type="text" name="company"/>#}
+{#                                </div>#}
+
+                                    <div class="span12 field-box textarea">
+                                        <label>机房描述:</label>
+                                        <textarea class="span9" name="description"></textarea>
+                                        <span class="charactersleft">剩余90个字符。 字段限制为100个字符</span>
+                                    </div>
+                                <div class="span11 field-box actions">
+                                    <input type="submit" class="btn-glow primary" value="添加机房" />
+                                    <span>OR</span>
+                                    <input type="reset" value="取消" class="reset" />
+                                </div>
+                            </form>
+
+                    </div>
+
+                     <!-- side right column -->
+                    <div class="span3 form-sidebar pull-right">
+                        <div class="btn-group toggle-inputs hidden-tablet">
+                            <button class="glow left active" data-input="inline">INLINE 输入</button>
+                            <button class="glow right" data-input="normal">NORMAL 输入</button>
+                        </div>
+                        <div class="alert alert-info hidden-tablet">
+                            <i class="icon-lightbulb pull-left"></i>点击上方可查看表单上内联和正常输入的区别
+                        </div>
+                        <h6>补充说明文字</h6>
+                        <p>一次添加多个设备</p>
+                        <p>选择以下文件类型之一:</p>
+                        <ul>
+{#                            <li><a>从CSV文件导入</a></li>#}
+                            <li><a href="/user/DevicesAdd">从Excel文件导入</a></li>
+{#                            <form method="post">#}
+{#                                <input class="span8" type="file" name="list"/>#}
+{#                                <input type="submit"  value="上传" />#}
+{#                            </form>#}
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+{% endblock %}
